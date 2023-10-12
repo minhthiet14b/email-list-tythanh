@@ -8,7 +8,7 @@
   <!-- Main content -->
   <div class="content">
     <div class="container-fluid">
-        <form action="" method="post">
+        <form action="{{route('deps.update',['id'=>$dep->id])}}" method="post">
             @csrf
             <div class="row">
                 <div class="col-9">
@@ -30,8 +30,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 form-control-label">Thao tác</label>
                                 <div class="col-sm-10 mb-3">
-                                    <button class="btn btn-primary" type="submit" name="close" value="close">Lưu lại và thoát</button>
-                                    <button class="btn btn-primary" type="submit" name="back" value="back">Lưu lại và thêm mới</button>
+                                    <button class="btn btn-primary" type="submit" name="ok" value="ok">Thay đổi</button>
                                     <button class="btn btn-primary" type="reset">Làm lại</button>
                                 </div>
                             </div>

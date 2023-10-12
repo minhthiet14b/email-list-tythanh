@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <div class="content-wrapper">
-    @include('partials.content-header', ['name'=>'Dep', 'key'=>'ADD'])
+    @include('partials.content-header', ['name'=>'Dep', 'key'=>'Add'])
   <!-- Main content -->
   <div class="content">
     <div class="container-fluid">

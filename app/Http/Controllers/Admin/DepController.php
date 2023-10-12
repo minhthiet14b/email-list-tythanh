@@ -32,6 +32,16 @@ class DepController extends Controller
         $dep = Dep::find($id);
         return view('admin.dep.edit')->with('dep',$dep);
     }
+    public function update(Request $request,$id){
+        $data = ([
+            'name' => $request->name,
+            'publish' => $request->publish
+        ]);
+        Dep::find($id)->update($data);
+        if($request->ok){
+            return redirect()->route('deps.index');
+        }
+    }
 }
 
 
