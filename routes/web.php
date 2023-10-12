@@ -16,6 +16,12 @@ use App\Http\Controllers\Admin\DepController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::prefix('admin')->group(function () {
+    Route::prefix('/dep')->group(function () {
+        Route::get('/',[DepController::class,'index'])->name('deps.index');
+        Route::get('/create',[DepController::class, 'create'])->name('deps.create');
+        Route::post('/store',[DepController::class, 'store'])->name('deps.store');
+        Route::get('/edit/{id}',[DepController::class, 'edit'])->name('deps.edit');
+    });
+});
 
-Route::get('admin/dep',[DepController::class,'index'])->name('dep.index');
-Route::get('admin/dep/create',[DepController::class, 'create'])->name('dep.create');

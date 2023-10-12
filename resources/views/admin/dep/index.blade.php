@@ -11,7 +11,7 @@
     <div class="container-fluid">
       <div class="row">
           <div class="col-sm-12">
-              <a href="{{ route('dep.create') }}" class="btn btn-success float-right m2">Add</a>
+              <a href="{{ route('deps.create') }}" class="btn btn-success float-right m2">Add</a>
           </div>
           <div class="col-sm-12">
               <table class="table">
@@ -23,21 +23,21 @@
                     </tr>
                   </thead>
                   <tbody>
-                    {{-- @foreach ($categories as  $category) --}}
+                    @foreach ($deps as  $dep)
                     <tr>
-                      {{-- <th scope="row">{{ $category->id }}</th>
-                      <td>{{ $category->name }}</td> --}}
+                      <th scope="row">{{ $dep->id }}</th>
+                      <td>{{ $dep->name }}</td>
                       <td>
-                        {{-- <a href="{{ route('categories.edit', ['id' => $category->id]) }}" class="btn btn-default ">Edit</a>
-                        <a data-url="{{ route('categories.delete', ['id' => $category->id]) }}" href="" class="btn btn-danger action_delete">Delete</a> --}}
+                        <a href="{{ route('deps.edit', ['id' => $dep->id]) }}" class="btn btn-default ">Edit</a>
+                        <a data-url="#" href="" class="btn btn-danger action_delete">Delete</a>
                       </td>
                     </tr>
-                    {{-- @endforeach --}}
+                    @endforeach
                   </tbody>
                 </table>
           </div>
           <div class="col-sm-12">
-            {{-- {{ $categories->links() }} --}}
+            {{ $deps->links() }}
           </div>
       </div>
       <!-- /.row -->
