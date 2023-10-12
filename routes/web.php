@@ -23,6 +23,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/store',[DepController::class, 'store'])->name('deps.store');
         Route::get('/edit/{id}',[DepController::class, 'edit'])->name('deps.edit');
         Route::post('/update/{id}',[DepController::class, 'update'])->name('deps.update');
+        Route::post('/delete/{id}',[DepController::class, 'delete'])->name('deps.delete');
     });
 });
 

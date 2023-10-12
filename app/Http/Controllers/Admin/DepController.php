@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Components\Recusive;
 use App\Models\Dep;
+use Exception;
+use Illuminate\Support\Facades\Log;
 
 class DepController extends Controller
 {
@@ -40,6 +42,21 @@ class DepController extends Controller
         Dep::find($id)->update($data);
         if($request->ok){
             return redirect()->route('deps.index');
+        }
+    }
+    public function delete($id){
+        try{
+            Dep::find($id)->delete();
+            return response()->json([
+                'code' => 200,
+                'messager' => 'success'
+            ],200);
+        }catch(\Exception $exception){
+            Log::error('Messenger: '.$exception->getMessage().'Line: '. $exception->getFile());
+            return response()->json([
+                'code' => 500,
+                'message' => 'fail'
+            ], 500);
         }
     }
 }

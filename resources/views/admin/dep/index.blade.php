@@ -2,6 +2,8 @@
 @section('title')
 <title>Dep</title>
 @endsection
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 @section('content')
 <div class="content-wrapper">
     @include('partials.content-header', ['name'=>'Dep', 'key'=>'List'])
@@ -29,7 +31,7 @@
                       <td>{{ $dep->name }}</td>
                       <td>
                         <a href="{{ route('deps.edit', ['id' => $dep->id]) }}" class="btn btn-default ">Edit</a>
-                        <a data-url="#" href="" class="btn btn-danger action_delete">Delete</a>
+                        <a data-url="{{ route('deps.delete', ['id' => $dep->id]) }}" href="" class="btn btn-danger action_delete">Delete</a>
                       </td>
                     </tr>
                     @endforeach
