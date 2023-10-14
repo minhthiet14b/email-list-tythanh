@@ -20,10 +20,13 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 form-control-label">Tiêu đề <span class="text-danger">(*)</span>:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="name" value="">
+                                    <input type="text" class="form-control  @error('name') is-invalid @enderror"" name="name" value="">
                                     <span class="text-small text-gray help-block-none">Nhập tiêu đề menu.</span>
                                 </div>
                             </div>
+                            @error('name')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <div class="form-group row">
                                 <label class="col-sm-2 form-control-label">Thao tác</label>
                                 <div class="col-sm-10 mb-3">

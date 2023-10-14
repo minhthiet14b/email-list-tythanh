@@ -2,6 +2,9 @@
 @section('title')
 <title>Trang chu</title>
 @endsection
+@section('js')
+<script src="{{ asset('adminn/list.js')}}"></script>
+@endsection
 @section('content')
 <div class="content-wrapper">
     @include('partials.content-header', ['name'=>'category', 'key'=>'ADD'])
@@ -30,7 +33,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 form-control-label">Thao tác</label>
                                 <div class="col-sm-10 mb-3">
-                                    <button class="btn btn-primary" type="submit" name="ok" value="ok">Thay đổi</button>
+                                    <button class="btn btn-primary action_change" type="submit" name="ok" value="ok">Thay đổi</button>
                                     <button class="btn btn-primary" type="reset">Làm lại</button>
                                 </div>
                             </div>

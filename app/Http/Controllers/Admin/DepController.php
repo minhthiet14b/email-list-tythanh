@@ -7,7 +7,7 @@ use App\Components\Recusive;
 use App\Models\Dep;
 use Exception;
 use Illuminate\Support\Facades\Log;
-
+use App\Http\Requests\DepRequest;
 class DepController extends Controller
 {
     public function index(){
@@ -17,16 +17,16 @@ class DepController extends Controller
     public function create(){
         return view('admin.dep.add');
     }
-    public function store(Request $request){
+    public function store(DepRequest $depRequest){
         $data = ([
-            'name' => $request->name,
-            'publish' => $request->publish
+            'name' => $depRequest->name,
+            'publish' => $depRequest->publish
         ]);
         Dep::create($data);
-        if($request->close){
+        if($depRequest->close){
             return redirect()->route('deps.index');
         }
-        if($request->back){
+        if($depRequest->back){
             return redirect()->route('deps.create');
         }
     }
@@ -35,14 +35,14 @@ class DepController extends Controller
         return view('admin.dep.edit')->with('dep',$dep);
     }
     public function update(Request $request,$id){
-        $data = ([
-            'name' => $request->name,
-            'publish' => $request->publish
-        ]);
-        Dep::find($id)->update($data);
-        if($request->ok){
-            return redirect()->route('deps.index');
-        }
+            $data = ([
+                'name' => $request->name,
+                'publish' => $request->publish
+            ]);
+            Dep::find($id)->update($data);
+            if($request->ok){
+                return redirect()->route('deps.index');
+            }
     }
     public function delete($id){
         try{
